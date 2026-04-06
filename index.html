@@ -21,6 +21,52 @@
       overflow-x: hidden;
     }
 
+    /* Волны как в лаунчере */
+    .waves-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeat-x;
+      animation: waveMove 8s infinite linear;
+      opacity: 0.4;
+    }
+
+    .wave1 {
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%239C4FC7" fill-opacity="0.3" d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,181.3C672,181,768,203,864,208C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x;
+      background-size: cover;
+      animation-duration: 12s;
+    }
+
+    .wave2 {
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23BC60F2" fill-opacity="0.2" d="M0,256L48,240C96,224,192,192,288,197.3C384,203,480,245,576,250.7C672,256,768,224,864,208C960,192,1056,192,1152,197.3C1248,203,1344,213,1392,218.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x;
+      background-size: cover;
+      animation-duration: 15s;
+      animation-direction: reverse;
+    }
+
+    .wave3 {
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%237C3AED" fill-opacity="0.15" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,144C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x;
+      background-size: cover;
+      animation-duration: 18s;
+    }
+
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100px); }
+    }
+
     .bg-glow {
       position: fixed;
       top: 0;
@@ -29,15 +75,6 @@
       height: 100%;
       background: radial-gradient(circle at 20% 30%, #1a0b2e, #03010a);
       z-index: -2;
-    }
-
-    .bg-glow::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(45deg, rgba(140, 0, 255, 0.02) 0px, rgba(140, 0, 255, 0.02) 2px, transparent 2px, transparent 8px);
-      pointer-events: none;
     }
 
     .glow-spot {
@@ -183,39 +220,50 @@
 
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
       margin: 80px 0;
     }
 
     .feature-card {
       background: rgba(15, 12, 25, 0.6);
       backdrop-filter: blur(8px);
-      border-radius: 28px;
-      padding: 28px;
+      border-radius: 24px;
+      padding: 24px;
       border: 1px solid rgba(168, 85, 247, 0.2);
       transition: all 0.3s;
     }
 
     .feature-card:hover {
       border-color: #a855f7;
-      transform: translateY(-6px);
+      transform: translateY(-5px);
     }
 
     .feature-icon {
-      font-size: 42px;
+      font-size: 38px;
       color: #c084fc;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .feature-card h3 {
-      font-size: 24px;
-      margin-bottom: 12px;
+      font-size: 20px;
+      margin-bottom: 8px;
     }
 
     .feature-card p {
       color: #aaa;
-      font-size: 15px;
+      font-size: 13px;
+    }
+
+    .feature-badge {
+      display: inline-block;
+      background: rgba(168, 85, 247, 0.3);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: bold;
+      color: #c084fc;
+      margin-top: 10px;
     }
 
     .desc-section {
@@ -318,6 +366,13 @@
 <div class="glow-spot" style="top: -10%; left: -10%;"></div>
 <div class="glow-spot" style="bottom: -10%; right: -10%; animation-duration: 25s;"></div>
 
+<!-- Волны как в лаунчере -->
+<div class="waves-container">
+  <div class="wave wave1"></div>
+  <div class="wave wave2"></div>
+  <div class="wave wave3"></div>
+</div>
+
 <div class="container">
   <div class="navbar">
     <div class="logo">⚡ VisualMod</div>
@@ -332,7 +387,7 @@
   <div class="hero">
     <div class="badge"><i class="fas fa-crown"></i> Профессиональный визуал-пак</div>
     <h1>Minecraft в новом<br>свете — мощь, стиль, контроль</h1>
-    <p>ESP, трейсеры, комбо-счётчик, урон цифрами и уникальные эффекты. Делай игру ярче и информативнее.</p>
+    <p>ESP, трейсеры, комбо-счётчик, авто-еда, авто-выход, замена элитр, китайские шляпы и многое другое!</p>
     <div class="price-tag">
       <div class="price-card">📆 1 месяц — <span>50₽</span></div>
       <div class="price-card">⭐ НАВСЕГДА — <span>150₽</span></div>
@@ -341,27 +396,41 @@
   </div>
 
   <div id="features" class="features">
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-eye"></i></div><h3>ESP / рамки</h3><p>Чёткие рамки вокруг игроков с настройкой цвета и толщины. Ты всегда видишь, где противник.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Tracers / линии</h3><p>Линии от центра экрана к игрокам. Идеально для PvP — никогда не потеряешь цель.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-skull"></i></div><h3>Damage Numbers</h3><p>Всплывающие цифры урона с анимацией. Видно каждое попадание и критический удар.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-fist-raised"></i></div><h3>Комбо-счётчик</h3><p>Стильные уведомления о серии ударов. Чем больше комбо — тем ярче эффект.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-bullseye"></i></div><h3>Снайперский прицел</h3><p>Идеальный прицел для лука и жемчуга. Точность повышается в разы.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Индикатор перезарядки</h3><p>Показывает, сколько осталось до следующего выстрела из лука или жемчуга.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-gem"></i></div><h3>Уведомления о луте</h3><p>Не пропусти алмазы, незерит и тотемы — всплывающее уведомление с иконкой предмета.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-magic"></i></div><h3>Анимированные имена</h3><p>Имена игроков плавно меняют цвет в зависимости от здоровья и статуса.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-volume-up"></i></div><h3>Звук критов</h3><p>Приятный звук при критическом ударе. Настраивается громкость и тип звука.</p></div>
+    <!-- Основные функции -->
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-eye"></i></div><h3>ESP / рамки</h3><p>Чёткие рамки вокруг игроков.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Tracers</h3><p>Линии от центра экрана к игрокам.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-skull"></i></div><h3>Damage Numbers</h3><p>Всплывающие цифры урона.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-fist-raised"></i></div><h3>Комбо-счётчик</h3><p>Стильные уведомления о серии ударов.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-bullseye"></i></div><h3>Снайперский прицел</h3><p>Идеальный прицел для лука.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-utensils"></i></div><h3>Auto Eat</h3><p>Автоматическое поедание еды при AFK.</p><span class="feature-badge">NEW</span></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-sign-out-alt"></i></div><h3>Auto Leave</h3><p>Автовыход при обнаружении игроков.</p><span class="feature-badge">NEW</span></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-exchange-alt"></i></div><h3>Elytra Swap</h3><p>Мгновенная замена элитр на нагрудник.</p><span class="feature-badge">NEW</span></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-hat-wizard"></i></div><h3>China Hat</h3><p>Забавная шляпа над головами игроков.</p><span class="feature-badge">NEW</span></div>
+    
+    <!-- Новые функции -->
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-skull-crossbones"></i></div><h3>DeathSpot</h3><p>Автоматическая метка на месте смерти. Больше не потеряешь вещи!</p><span class="feature-badge">NEW</span></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div><h3>Waypoints</h3><p>Создание своих точек на карте. База, шахта, портал — всё под контролем.</p><span class="feature-badge">NEW</span></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div><h3>Item Durability HUD</h3><p>Отображает прочность предметов в реальном времени. Всегда знай, когда сломается меч.</p><span class="feature-badge">NEW</span></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-cube"></i></div><h3>Item Physics</h3><p>Предметы падают с физикой — кувыркаются и вращаются. Красиво и реалистично.</p><span class="feature-badge">NEW</span></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-crosshairs"></i></div><h3>Custom Crosshair</h3><p>Настраиваемый прицел. Цвет, форма, размер — под твой стиль.</p><span class="feature-badge">NEW</span></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>FPS Display</h3><p>Красивый счётчик FPS с графиком и историей производительности.</p><span class="feature-badge">NEW</span></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Auto Totem</h3><p>Автоматически ставит тотем в оффхенд, если его нет. Спасёт в критический момент.</p><span class="feature-badge">NEW</span></div>
+    
+    <!-- Дополнительные -->
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-gem"></i></div><h3>Уведомления о луте</h3><p>Не пропусти алмазы и тотемы.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-magic"></i></div><h3>Анимированные имена</h3><p>Имена меняют цвет от здоровья.</p></div>
   </div>
 
   <div id="about" class="desc-section">
     <h2>🔥 Что такое VisualMod?</h2>
-    <p>VisualMod — это профессиональный визуальный пакет для Minecraft 1.21.4, который делает игру ярче, информативнее и удобнее. Мы не даём читерских преимуществ (типа видеть сквозь стены), а просто улучшаем то, что ты и так видишь — но делаем это красиво.</p>
+    <p>VisualMod — профессиональный визуальный пакет для Minecraft 1.21.4, который делает игру ярче, информативнее и удобнее.</p>
     <p><strong>Почему выбирают VisualMod:</strong></p>
     <ul>
       <li>Полная совместимость с Fabric 1.21.4</li>
       <li>Низкое потребление ресурсов — не лагает даже на слабых ПК</li>
-      <li>Все настройки сохраняются и не сбрасываются после перезапуска</li>
+      <li>Все настройки сохраняются</li>
       <li>Постоянные обновления и поддержка</li>
-      <li>Привязка к железу (HWID) — ключ работает только на твоём ПК</li>
+      <li>20+ уникальных функций</li>
     </ul>
   </div>
 
@@ -375,7 +444,7 @@
   </div>
 
   <div class="footer">
-    <p>VisualMod © 2026 — Профессиональный визуальный пакет для Minecraft 1.21+<br>Не является читерским ПО, только улучшение визуала.</p>
+    <p>VisualMod © 2026 — Профессиональный визуальный пакет для Minecraft 1.21+<br>Не является читерским ПО, только улучшение визуала и удобства.</p>
   </div>
 </div>
 
