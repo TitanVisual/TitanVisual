@@ -102,21 +102,6 @@
       color: #c084fc;
     }
 
-    .btn-outline {
-      border: 1px solid #a855f7;
-      padding: 8px 20px;
-      border-radius: 100px;
-      background: transparent;
-      color: white;
-      font-weight: 600;
-      transition: 0.2s;
-    }
-
-    .btn-outline:hover {
-      background: rgba(168, 85, 247, 0.1);
-      border-color: #c084fc;
-    }
-
     .hero {
       display: flex;
       flex-direction: column;
@@ -198,7 +183,7 @@
 
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       margin: 80px 0;
     }
@@ -230,6 +215,48 @@
 
     .feature-card p {
       color: #aaa;
+      font-size: 15px;
+    }
+
+    .desc-section {
+      background: linear-gradient(135deg, #1e172f, #0c0820);
+      border-radius: 48px;
+      padding: 50px 40px;
+      margin: 40px 0;
+      border: 1px solid #2a2040;
+    }
+
+    .desc-section h2 {
+      font-size: 32px;
+      margin-bottom: 24px;
+      color: #c084fc;
+    }
+
+    .desc-section p {
+      color: #bbb;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .desc-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .desc-section li {
+      color: #bbb;
+      font-size: 16px;
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .desc-section li:before {
+      content: "▸";
+      color: #c084fc;
+      position: absolute;
+      left: 0;
     }
 
     .telegram-block {
@@ -282,6 +309,7 @@
       h1 { font-size: 42px; }
       .container { padding: 0 20px; }
       .price-card span { font-size: 28px; }
+      .desc-section { padding: 30px 20px; }
     }
   </style>
 </head>
@@ -296,6 +324,7 @@
     <div class="nav-links">
       <a href="#">Главная</a>
       <a href="#features">Функции</a>
+      <a href="#about">О нас</a>
       <a href="#buy">Купить</a>
     </div>
   </div>
@@ -303,7 +332,7 @@
   <div class="hero">
     <div class="badge"><i class="fas fa-crown"></i> Профессиональный визуал-пак</div>
     <h1>Minecraft в новом<br>свете — мощь, стиль, контроль</h1>
-    <p>ESP, трейсеры, комбо-счётчик, трекер невидимок и уникальные эффекты. Делай игру ярче и информативнее.</p>
+    <p>ESP, трейсеры, комбо-счётчик, урон цифрами и уникальные эффекты. Делай игру ярче и информативнее.</p>
     <div class="price-tag">
       <div class="price-card">📆 1 месяц — <span>50₽</span></div>
       <div class="price-card">⭐ НАВСЕГДА — <span>150₽</span></div>
@@ -312,18 +341,34 @@
   </div>
 
   <div id="features" class="features">
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-eye"></i></div><h3>ESP / рамки</h3><p>Чёткие рамки вокруг игроков, настройка цвета и толщины.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Tracers</h3><p>Линии к противникам — всегда знай, куда целиться.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-skull"></i></div><h3>Damage Numbers</h3><p>Всплывающие цифры урона с анимацией.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-ghost"></i></div><h3>Ghost Tracker</h3><p>Отслеживай невидимок через увеличенные партиклы.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-fist-raised"></i></div><h3>Комбо-счётчик</h3><p>Стильные уведомления о серии ударов.</p></div>
-    <div class="feature-card"><div class="feature-icon"><i class="fas fa-bullseye"></i></div><h3>Снайперский прицел</h3><p>Идеальный прицел для лука и жемчуга.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-eye"></i></div><h3>ESP / рамки</h3><p>Чёткие рамки вокруг игроков с настройкой цвета и толщины. Ты всегда видишь, где противник.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Tracers / линии</h3><p>Линии от центра экрана к игрокам. Идеально для PvP — никогда не потеряешь цель.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-skull"></i></div><h3>Damage Numbers</h3><p>Всплывающие цифры урона с анимацией. Видно каждое попадание и критический удар.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-fist-raised"></i></div><h3>Комбо-счётчик</h3><p>Стильные уведомления о серии ударов. Чем больше комбо — тем ярче эффект.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-bullseye"></i></div><h3>Снайперский прицел</h3><p>Идеальный прицел для лука и жемчуга. Точность повышается в разы.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Индикатор перезарядки</h3><p>Показывает, сколько осталось до следующего выстрела из лука или жемчуга.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-gem"></i></div><h3>Уведомления о луте</h3><p>Не пропусти алмазы, незерит и тотемы — всплывающее уведомление с иконкой предмета.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-magic"></i></div><h3>Анимированные имена</h3><p>Имена игроков плавно меняют цвет в зависимости от здоровья и статуса.</p></div>
+    <div class="feature-card"><div class="feature-icon"><i class="fas fa-volume-up"></i></div><h3>Звук критов</h3><p>Приятный звук при критическом ударе. Настраивается громкость и тип звука.</p></div>
+  </div>
+
+  <div id="about" class="desc-section">
+    <h2>🔥 Что такое VisualMod?</h2>
+    <p>VisualMod — это профессиональный визуальный пакет для Minecraft 1.21.4, который делает игру ярче, информативнее и удобнее. Мы не даём читерских преимуществ (типа видеть сквозь стены), а просто улучшаем то, что ты и так видишь — но делаем это красиво.</p>
+    <p><strong>Почему выбирают VisualMod:</strong></p>
+    <ul>
+      <li>Полная совместимость с Fabric 1.21.4</li>
+      <li>Низкое потребление ресурсов — не лагает даже на слабых ПК</li>
+      <li>Все настройки сохраняются и не сбрасываются после перезапуска</li>
+      <li>Постоянные обновления и поддержка</li>
+      <li>Привязка к железу (HWID) — ключ работает только на твоём ПК</li>
+    </ul>
   </div>
 
   <div id="buy" class="telegram-block">
     <h2>🚀 Приобрести лицензию</h2>
     <p>Напиши мне в Telegram — выберешь тариф, оплатишь картой или СБП, и я сразу отправлю ключ.</p>
-    <a href="https://t.me/kaizyop" target="_blank" class="btn-tg">
+    <a href="https://t.me/KaizyOP" target="_blank" class="btn-tg">
       <i class="fab fa-telegram"></i> Написать в Telegram
     </a>
     <p style="margin-top: 24px; font-size: 14px;">⚡ Отвечаю быстро. После оплаты ключ приходит сразу.</p>
@@ -336,7 +381,7 @@
 
 <script>
   document.getElementById('buyNowBtn').addEventListener('click', () => {
-    window.open('https://t.me/kaizyop', '_blank');
+    window.open('https://t.me/KaizyOP', '_blank');
   });
 </script>
 </body>
